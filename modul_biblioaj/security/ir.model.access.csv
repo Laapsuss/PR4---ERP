@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biblioaj_autor,access_biblioaj_autor,model_biblioaj_autor,base.group_user,1,1,1,1
+access_biblioaj_editorial,access_biblioaj_editorial,model_biblioaj_editorial,base.group_user,1,1,1,1
+access_biblioaj_llibre,access_biblioaj_llibre,model_biblioaj_llibre,base.group_user,1,1,1,1

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record model="ir.actions.act_window" id="action_biblioaj_llibre_tree">
+		<field name="name">Llibre</field>
+		<field name="res_model">biblioaj.llibre</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="action_biblioaj_editorial_tree">
+		<field name="name">Editorial</field>
+		<field name="res_model">biblioaj.editorial</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="action_biblioaj_autor_tree">
+		<field name="name">Autor</field>
+		<field name="res_model">biblioaj.autor</field>
+	</record>
+
+	<menuitem name="Biblio" id="biblio_menu1" />
+	<menuitem name="Llibre" parent="biblio_menu1" id="biblio_menu1_1" action="action_biblioaj_llibre_tree" />	
+	<menuitem name="Editorial" parent="biblio_menu1" id="biblio_menu1_1" action="action_biblioaj_editorial_tree" />	
+	<menuitem name="Autor" parent="biblio_menu1" id="biblio_menu1_2" action="action_biblioaj_autor_tree" />		
+
+	<record model="ir.ui.view" id="view_biblioaj_llibre_tree">
+		<field name="name">biblioaj_llibre</field>
+		<field name="model">biblioaj.llibre</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Tasca">
+				<field name="codi"/>
+				<field name="isbn"/>
+				<field name="titol"/>
+				<field name="pagines"/>				
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_biblioaj_editorial_tree">
+		<field name="name">biblioaj_editorial</field>
+		<field name="model">biblioaj.editorial</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Editorial">
+				<field name="nom"/>
+				<field name="telf"/>
+				<field name="email"/>				
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_biblioaj_autor_tree">
+		<field name="name">biblioaj_autor</field>
+		<field name="model">biblioaj.autor</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Autor">
+				<field name="nom"/>
+				<field name="cognoms"/>
+				<field name="telf"/>				
+				<field name="email"/>				
+			</tree>
+		</field>
+	</record>
+
+	</data>
+</odoo>
