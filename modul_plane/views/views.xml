@@ -94,6 +94,128 @@
 			</tree>
 		</field>
 	</record>
+
+	<!-- Módul Plane-->
+
+		<!-- Model Aeroport-->
+
+		<record model="ir.ui.view" id="view_plane_aeroport_form">
+			<field name="name">plane_aeroport</field>
+			<field name="model">plane.aeroport</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plane">
+					<sheet>
+						<group col="12" string="Dades de l'Aeroport">
+							<group colspan="6">
+								<field name="nom"/>
+								<field name="ciutat"/>
+								<field name="pais"/>
+								<field name="latitud"/>
+								<field name="longitud"/>
+							</group>						
+
+							<group col="12" string="Afegir vols de destí">
+								<group colspan="12">
+									<field name="desti_ids"/>
+								</group>
+							</group>
+							
+							<group col="12" string="Afegir vols d'origen">
+								<group colspan="12">
+									<field name="origen_ids"/>
+								</group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Model Avió-->
+		<record model="ir.ui.view" id="view_plane_avio_form">
+			<field name="name">plane_avio</field>
+			<field name="model">plane.avio</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plane">
+					<sheet>
+						<group col="12" string="Dades de l'avió">
+							<group colspan="6">
+								<field name="marca"/>
+								<field name="model"/>
+								<field name="maxvel"/>
+							</group>						
+
+							<group col="12" string="Afegir vols">
+								<group colspan="12">
+									<field name="vol_ids"/>
+								</group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Model Pilot-->
+			<record model="ir.ui.view" id="view_plane_pilot_form">
+				<field name="name">plane_pilot</field>
+				<field name="model">plane.pilot</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+					<form string="Plane">
+						<sheet>
+							<group col="12" string="Dades del Pilot">
+								<group colspan="6">
+									<field name="nom"/>
+									<field name="cognoms"/>
+									<field name="nif"/>
+								</group>		
+
+								<group colspan="6">
+									<field name="telf"/>
+									<field name="email"/>
+								</group>					
+							</group>
+
+							<group col="12" string="Afegir vols">
+								<group colspan="12">
+									<field name="vol_ids"/>
+								</group>
+							</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	<!-- Módul Vol-->
+		<record model="ir.ui.view" id="view_plane_vol_form">
+			<field name="name">plane_vol</field>
+			<field name="model">plane.vol</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plane">
+					<sheet>
+						<group col="12" string="Dades del Vol">
+							<group colspan="6">
+								<field name="desti_id"/>
+								<field name="origen_id"/>
+								<field name="dataSortida"/>
+								<field name="dataEntrada"/>
+							</group>						
+
+							<group colspan="6">
+								<field name="passatgers"/>
+								<field name="avio_id"/>
+								<field name="pilot_id"/>
+							</group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
     
 	</data>
 </odoo>
