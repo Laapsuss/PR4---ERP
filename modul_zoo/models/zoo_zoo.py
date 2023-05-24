@@ -7,6 +7,7 @@ class zoo_zoo(models.Model):
     nom = fields.Char('nom')
     ciutat = fields.Char('ciutat')
     pais = fields.Char('pais')
+    animal_ids = fields.one2Many('zoo.animal', 'zoo_id', string="Animals")
 
     def _get_name(self):
         for record in self:

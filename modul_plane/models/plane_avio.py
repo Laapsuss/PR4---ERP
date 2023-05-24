@@ -7,6 +7,7 @@ class plane_avio(models.Model):
     marca = fields.Integer('Marca')
     model = fields.Char('Model')
     maxVel = fields.Float('Velocitat Màxima')
+    vol_ids = fields.one2Many('plane.vol', 'avio_id', string="Vols")
     
     def _get_name(self):
         for record in self:
