@@ -4,16 +4,19 @@
     	<record model="ir.actions.act_window" id="action_zoo_zoo_tree">
 		<field name="name">Zoo</field>
 		<field name="res_model">zoo.zoo</field>
+		<field name="view_mode">tree,form</field>
 	    </record>
 
 		<record model="ir.actions.act_window" id="action_zoo_animal_tree">
 		<field name="name">Animal</field>
 		<field name="res_model">zoo.animal</field>
+		<field name="view_mode">tree,form</field>
 	    </record>
 
         <record model="ir.actions.act_window" id="action_zoo_especie_tree">
             <field name="name">Especie</field>
             <field name="res_model">zoo.especie</field>
+			<field name="view_mode">tree,form</field>
         </record>
 
         <menuitem name="Zoo" id="zoo_menu1" />
@@ -22,46 +25,256 @@
         <menuitem name="Especie" parent="zoo_menu1" id="zoo_menu1_3" action="action_zoo_especie_tree" />
 
         <record model="ir.ui.view" id="view_zoo_zoo_tree">
-		<field name="name">zoo_zoo</field>
-		<field name="model">zoo.zoo</field>
-		<field name="type">tree</field>
-		<field name="arch" type="xml">
-			<tree string="Zoo">
-				<field name="grandaria"/>
-				<field name="mom"/>
-				<field name="ciutat"/>
-				<field name="pais"/>				
-			</tree>
-		</field>
-	</record>
+			<field name="name">zoo_zoo</field>
+			<field name="model">zoo.zoo</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Zoo">
+					<field name="grandaria"/>
+					<field name="mom"/>
+					<field name="ciutat"/>
+					<field name="pais"/>				
+				</tree>
+			</field>
+		</record>
 
-	<record model="ir.ui.view" id="view_zoo_animal_tree">
-		<field name="name">zoo_animal</field>
-		<field name="model">zoo.animal</field>
-		<field name="type">tree</field>
-		<field name="arch" type="xml">
-			<tree string="Animal">
-				<field name="continentOrigen"/>
-				<field name="datanaix"/>
-				<field name="PaisOrigen"/>				
-				<field name="sexe"/>				
-			</tree>
-		</field>
-	</record>
+		<record model="ir.ui.view" id="view_zoo_animal_tree">
+			<field name="name">zoo_animal</field>
+			<field name="model">zoo.animal</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Animal">
+					<field name="continentOrigen"/>
+					<field name="datanaix"/>
+					<field name="PaisOrigen"/>				
+					<field name="sexe"/>				
+				</tree>
+			</field>
+		</record>
 
-	<record model="ir.ui.view" id="view_zoo_especie_tree">
-		<field name="name">zoo_especie</field>
-		<field name="model">zoo.especie</field>
-		<field name="type">tree</field>
-		<field name="arch" type="xml">
-			<tree string="Especie">
-				<field name="familia"/>
-				<field name="nomCientific"/>				
-				<field name="nomVulgar"/>		
-				<field name="perill"/>				
-			</tree>
-		</field>
-	</record>
-    
+		<record model="ir.ui.view" id="view_zoo_especie_tree">
+			<field name="name">zoo_especie</field>
+			<field name="model">zoo.especie</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Especie">
+					<field name="familia"/>
+					<field name="nomCientific"/>				
+					<field name="nomVulgar"/>		
+					<field name="perill"/>				
+				</tree>
+			</field>
+		</record>
+
+	<!-- FORMS-->
+		<!-- Módul Zoo-->
+
+		<!-- Model Zoo-->
+
+		<record model="ir.ui.view" id="view_zoo_zoo_form">
+			<field name="name">zoo_zoo</field>
+			<field name="model">zoo.zoo</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Zoo">
+					<sheet>
+						<group col="12" string="Dades del zoo">
+							<group colspan="6">
+								<field name="nom"/>
+								<field name="ciutat"/>
+							</group>
+
+							<group colspan="6">
+								<field name="pais"/>
+								<field name="grandaria"/>
+							</group>
+						</group>
+
+						<group col="12" string="Afegir Animals">
+							<group colspan="12">
+								<field name="animal_ids"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Model Espècie-->
+		<record model="ir.ui.view" id="view_zoo_especie_form">
+			<field name="name">zoo_especie</field>
+			<field name="model">zoo.especie</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Zoo">
+					<sheet>
+						<group col="12" string="Dades de l'espècie">
+							<group colspan="6">
+								<field name="nomvulgar"/>
+								<field name="nomcientific"/>
+							</group>
+
+							<group colspan="6">
+								<field name="familia"/>
+								<field name="perill"/>
+							</group>
+						</group>
+
+						<group col="12" string="Afegir Animals">
+							<group colspan="12">
+								<field name="animals_ids"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Model Animal-->
+		<record model="ir.ui.view" id="view_zoo_animal_form">
+			<field name="name">zoo_animal</field>
+			<field name="model">zoo.animal</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Zoo">
+					<sheet>
+						<group col="12" string="Dades de l'animal">
+							<group colspan="6">
+								<field name="PaisOrigen"/>
+								<field name="continentOrigen"/>
+							</group>
+
+							<group colspan="6">
+								<field name="datanaix"/>
+								<field name="zoo_id"/>
+								<field name="especie_id"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Módul Plane-->
+
+		<!-- Model Aeroport-->
+
+		<record model="ir.ui.view" id="view_plane_aeroport_form">
+			<field name="name">plane_aeroport</field>
+			<field name="model">plane.aeroport</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plane">
+					<sheet>
+						<group col="12" string="Dades de l'Aeroport">
+							<group colspan="6">
+								<field name="nom"/>
+								<field name="ciutat"/>
+								<field name="pais"/>
+								<field name="latitud"/>
+								<field name="longitud"/>
+							</group>						
+
+							<group col="12" string="Afegir vols de destí">
+								<group colspan="12">
+									<field name="desti_ids"/>
+								</group>
+							</group>
+							
+							<group col="12" string="Afegir vols d'origen">
+								<group colspan="12">
+									<field name="origen_ids"/>
+								</group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Model Avió-->
+		<record model="ir.ui.view" id="view_plane_avio_form">
+			<field name="name">plane_avio</field>
+			<field name="model">plane.avio</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plane">
+					<sheet>
+						<group col="12" string="Dades de l'avió">
+							<group colspan="6">
+								<field name="marca"/>
+								<field name="model"/>
+								<field name="maxvel"/>
+							</group>						
+
+							<group col="12" string="Afegir vols">
+								<group colspan="12">
+									<field name="vol_ids"/>
+								</group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Model Pilot-->
+			<record model="ir.ui.view" id="view_plane_pilot_form">
+				<field name="name">plane_pilot</field>
+				<field name="model">plane.pilot</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+					<form string="Plane">
+						<sheet>
+							<group col="12" string="Dades del Pilot">
+								<group colspan="6">
+									<field name="nom"/>
+									<field name="cognoms"/>
+									<field name="nif"/>
+								</group>		
+
+								<group colspan="6">
+									<field name="telf"/>
+									<field name="email"/>
+								</group>					
+							</group>
+
+							<group col="12" string="Afegir vols">
+								<group colspan="12">
+									<field name="vol_ids"/>
+								</group>
+							</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	<!-- Módul Vol-->
+		<record model="ir.ui.view" id="view_plane_vol_form">
+			<field name="name">plane_vol</field>
+			<field name="model">plane.vol</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plane">
+					<sheet>
+						<group col="12" string="Dades del Vol">
+							<group colspan="6">
+								<field name="desti_id"/>
+								<field name="origen_id"/>
+								<field name="dataSortida"/>
+								<field name="dataEntrada"/>
+							</group>						
+
+							<group colspan="6">
+								<field name="passatgers"/>
+								<field name="avio_id"/>
+								<field name="pilot_id"/>
+							</group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 	</data>
 </odoo>
